@@ -12,6 +12,8 @@ const People = () => {
 
 export default People;
 
+//Styles
+
 const Container = styled.div`
   margin-bottom: 1rem;
   h6 {

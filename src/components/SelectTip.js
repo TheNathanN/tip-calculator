@@ -34,6 +34,8 @@ const SelectTip = () => {
 
 export default SelectTip;
 
+//Styles
+
 const Container = styled.div`
   margin: 2rem 0;
 
@@ -199,6 +201,18 @@ const Container = styled.div`
   @media screen and (max-width: 465px) {
     .btn {
       width: 5.5rem;
+      font-size: 1rem;
+    }
+  }
+  @media screen and (max-width: 348px) {
+    margin: 0rem 0;
+    .split-btns {
+      margin-bottom: 1rem;
+    }
+  }
+  @media screen and (max-width: 264px) {
+    .btn {
+      width: 5rem;
       font-size: 1rem;
     }
   }

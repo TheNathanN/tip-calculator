@@ -67,15 +67,17 @@ const Container = styled.div`
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
       width: 100vw;
+      height: 100vh;
     }
     .input-section {
       width: 100%;
-      height: 70%;
+      height: 65%;
       margin-right: 0;
+      margin-bottom: 2rem;
     }
     .output-section {
       width: 100%;
-      height: 30%;
+      height: 35%;
     }
   }
 `;

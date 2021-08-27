@@ -12,6 +12,8 @@ const BillInput = () => {
 
 export default BillInput;
 
+//Styles
+
 const Container = styled.div`
   h6 {
     margin-bottom: 0.4rem;

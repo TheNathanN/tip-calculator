@@ -31,6 +31,8 @@ const Results = () => {
 
 export default Results;
 
+//Styles
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -161,6 +163,11 @@ const Container = styled.div`
     }
   }
   @media screen and (max-width: 429px) {
+    .contianer {
+      h6 {
+        font-size: 0.7rem;
+      }
+    }
     .label-cotainer {
       display: flex;
       flex-direction: column;
