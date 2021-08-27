@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Results = () => {
+const Results = ({ tipAmount, totalAmount }) => {
   return (
     <Container>
       <div className='results-container'>
@@ -11,7 +11,7 @@ const Results = () => {
             <p>/ person</p>
           </div>
           <div className='result'>
-            <p>$0.00</p>
+            <p>${tipAmount}</p>
           </div>
         </div>
         <div className='container'>
@@ -20,7 +20,7 @@ const Results = () => {
             <p>/ person</p>
           </div>
           <div className='result'>
-            <p>$0.00</p>
+            <p>${totalAmount}</p>
           </div>
         </div>
       </div>
@@ -47,6 +47,7 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 1rem;
 
     .label-container {
       width: 8rem;
@@ -66,7 +67,7 @@ const Container = styled.div`
     .result {
       p {
         color: hsl(172, 67%, 45%);
-        font-size: 3rem;
+        font-size: 2.7rem;
       }
     }
   }
@@ -134,7 +135,7 @@ const Container = styled.div`
     }
 
     .reset-btn {
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
     }
   }
   @media screen and (max-width: 604px) {
@@ -149,7 +150,7 @@ const Container = styled.div`
       }
     }
     .reset-btn {
-      margin-bottom: 1rem;
+      margin-top: 1rem;
     }
   }
   @media screen and (max-width: 462px) {

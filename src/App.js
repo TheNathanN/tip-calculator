@@ -1,23 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import BillInput from './components/BillInput';
-import SelectTip from './components/SelectTip';
-import People from './components/People';
-import Results from './components/Results';
+import BillInputState from './components/BillInputState';
+import SelectTipState from './components/SelectTipState';
+import PeopleState from './components/PeopleState';
+import ResultsState from './components/ResultsState';
 
 function App() {
+  //Define the State Variables of App
+  const [bill, setBill] = useState(0);
+  const [tipPercent, setTipPercent] = useState(0);
+  const [people, setPeople] = useState(0);
+  const [tipTotal, setTipTotal] = useState(0);
+  const [personTotal, setPersonTotal] = useState(0);
+
   return (
     <Container>
-      <img src='/images/logo.svg' alt='' />
+      <img src='/images/logo.svg' alt='splitter logo' />
       <div className='app-components'>
         <div className='input-section'>
-          <BillInput />
-          <SelectTip />
-          <People />
+          <BillInputState bill={bill} setBill={setBill} />
+          <SelectTipState
+            tipPercent={tipPercent}
+            setTipPercent={setTipPercent}
+          />
+          <PeopleState people={people} setPeople={setPeople} />
         </div>
         <div className='output-section'>
-          <Results />
+          <ResultsState
+            bill={bill}
+            setBill={setBill}
+            tipPercent={tipPercent}
+            setTipPercent={setTipPercent}
+            people={people}
+            setPeople={setPeople}
+            tipTotal={tipTotal}
+            setTipTotal={setTipTotal}
+            personTotal={personTotal}
+            setPersonTotal={setPersonTotal}
+          />
         </div>
       </div>
     </Container>
