@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import BillInputState from './components/BillInputState';
-import SelectTipState from './components/SelectTipState';
-import PeopleState from './components/PeopleState';
-import ResultsState from './components/ResultsState';
+import BillInput from './components/BillInput';
+import SelectTip from './components/SelectTip';
+import People from './components/People';
+import Results from './components/Results';
 
 function App() {
   //Define the State Variables of App
-  const [bill, setBill] = useState(0);
-  const [tipPercent, setTipPercent] = useState(0);
-  const [people, setPeople] = useState(0);
+  const [bill, setBill] = useState('0');
+  const [tipPercent, setTipPercent] = useState('0');
+  const [people, setPeople] = useState('0');
   const [tipTotal, setTipTotal] = useState(0);
   const [personTotal, setPersonTotal] = useState(0);
 
@@ -19,15 +19,12 @@ function App() {
       <img src='/images/logo.svg' alt='splitter logo' />
       <div className='app-components'>
         <div className='input-section'>
-          <BillInputState bill={bill} setBill={setBill} />
-          <SelectTipState
-            tipPercent={tipPercent}
-            setTipPercent={setTipPercent}
-          />
-          <PeopleState people={people} setPeople={setPeople} />
+          <BillInput bill={bill} setBill={setBill} />
+          <SelectTip tipPercent={tipPercent} setTipPercent={setTipPercent} />
+          <People people={people} setPeople={setPeople} />
         </div>
         <div className='output-section'>
-          <ResultsState
+          <Results
             bill={bill}
             setBill={setBill}
             tipPercent={tipPercent}
@@ -69,11 +66,12 @@ const Container = styled.div`
   }
 
   .input-section {
-    margin-right: 2.5rem;
+    margin-right: 1.25rem;
     width: 50%;
   }
 
   .output-section {
+    margin-left: 1.25rem;
     width: 50%;
   }
 
@@ -99,6 +97,7 @@ const Container = styled.div`
     .output-section {
       width: 100%;
       height: 35%;
+      margin-left: 0;
     }
   }
 `;

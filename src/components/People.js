@@ -1,11 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const People = () => {
+const People = ({ people, setPeople }) => {
+  const peopleHandler = e => {
+    setPeople(e.target.value);
+  };
+
   return (
     <Container>
       <h6>Number of People</h6>
-      <input type='text' placeholder='0' />
+      {!people || people === '0' ? (
+        <input
+          className='error'
+          type='number'
+          placeholder='0'
+          onChange={peopleHandler}
+        />
+      ) : (
+        <input type='number' placeholder='0' onChange={peopleHandler} />
+      )}
     </Container>
   );
 };
@@ -32,14 +45,37 @@ const Container = styled.div`
     border: 2px solid hsl(189, 41%, 90%);
     border-radius: 4px;
     padding: 1rem;
+    cursor: pointer;
 
-    &::-webkit-input-placeholder {
-      color: hsl(184, 14%, 56%);
+    &[type='number'] {
+      -moz-appearance: textfield;
     }
 
     &:focus {
       outline: none;
       border-color: hsl(172, 67%, 45%);
+    }
+
+    &[type='number']::-webkit-inner-spin-button,
+    &[type='number']::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    &::-webkit-input-placeholder {
+      color: hsl(184, 14%, 56%);
+    }
+  }
+
+  .error {
+    &:focus {
+      outline: none;
+      border-color: red;
+    }
+    &::after {
+      color: red;
+      content: "Can't be zero";
+      display: block;
     }
   }
 

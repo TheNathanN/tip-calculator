@@ -1,31 +1,109 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const SelectTip = () => {
+const SelectTip = ({ tipPercent, setTipPercent }) => {
+  const [customVal, setCustomVal] = useState('');
+
+  const fiveHandler = () => {
+    setTipPercent('5');
+    setCustomVal('');
+  };
+  const tenHandler = () => {
+    setTipPercent('10');
+    setCustomVal('');
+  };
+  const fifteenHandler = () => {
+    setTipPercent('15');
+    setCustomVal('');
+  };
+  const twentyFiveHandler = () => {
+    setTipPercent('25');
+    setCustomVal('');
+  };
+  const fiftyHandler = () => {
+    setTipPercent('50');
+    setCustomVal('');
+  };
+  const resetHandler = () => {
+    setTipPercent('0');
+    setCustomVal('');
+  };
+
+  const setCustomTipVal = val => {
+    setTipPercent(val);
+  };
+
+  const customHandler = e => {
+    const input = e.target.value;
+    setCustomVal(input);
+    setCustomTipVal(input);
+  };
+
+  console.log(tipPercent);
   return (
     <Container>
       <h6>Select Tip %</h6>
       <div className='btn-container'>
         <div className='split-btns main'>
-          <div className='btn'>5%</div>
-          <div className='btn'>10%</div>
-          <div className='btn'>15%</div>
-          <div className='btn hidden'>25%</div>
-          <div className='btn hidden'>50%</div>
-          <input
-            type='text hidden'
-            placeholder='Custom'
-            className='btn custom-btn hidden'
-          />
+          <div className='btn' onClick={fiveHandler}>
+            5%
+          </div>
+          <div className='btn' onClick={tenHandler}>
+            10%
+          </div>
+          <div className='btn' onClick={fifteenHandler}>
+            15%
+          </div>
+          <div className='btn hidden' onClick={twentyFiveHandler}>
+            25%
+          </div>
+          <div className='btn hidden' onClick={fiftyHandler}>
+            50%
+          </div>
+          {!tipPercent || tipPercent === '0' ? (
+            <input
+              type='number'
+              placeholder='Custom'
+              className='btn custom-btn hidden error'
+              onChange={customHandler}
+              value={customVal}
+            />
+          ) : (
+            <input
+              type='number'
+              placeholder='Custom'
+              className='btn custom-btn hidden'
+              onChange={customHandler}
+              onClick={resetHandler}
+              value={customVal}
+            />
+          )}
         </div>
         <div className='split-btns'>
-          <div className='btn hide'>25%</div>
-          <div className='btn hide'>50%</div>
-          <input
-            type='text'
-            placeholder='Custom'
-            className='btn custom-btn hide'
-          />
+          <div className='btn hide' onClick={twentyFiveHandler}>
+            25%
+          </div>
+          <div className='btn hide' onClick={fiftyHandler}>
+            50%
+          </div>
+          {!tipPercent || tipPercent === '0' ? (
+            <input
+              type='number'
+              placeholder='Custom'
+              className='btn custom-btn hide error'
+              onChange={customHandler}
+              value={customVal}
+            />
+          ) : (
+            <input
+              type='number'
+              placeholder='Custom'
+              className='btn custom-btn hide'
+              onChange={customHandler}
+              onClick={resetHandler}
+              value={customVal}
+            />
+          )}
         </div>
       </div>
     </Container>
@@ -90,10 +168,6 @@ const Container = styled.div`
     background: hsl(189, 41%, 90%);
     border: 2px solid hsl(189, 41%, 90%);
 
-    &::-webkit-input-placeholder {
-      color: hsl(184, 14%, 56%);
-    }
-
     &:focus {
       outline: none;
       border-color: hsl(172, 67%, 45%);
@@ -101,6 +175,27 @@ const Container = styled.div`
 
     &:hover {
       background: hsl(189, 41%, 90%);
+    }
+
+    &::-webkit-input-placeholder {
+      color: hsl(184, 14%, 56%);
+    }
+
+    &[type='number'] {
+      -moz-appearance: textfield;
+    }
+
+    &[type='number']::-webkit-inner-spin-button,
+    &[type='number']::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
+  .error {
+    &:focus {
+      outline: none;
+      border-color: red;
     }
   }
 

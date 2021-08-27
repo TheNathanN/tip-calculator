@@ -1,7 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Results = ({ tipAmount, totalAmount }) => {
+const Results = ({
+  bill,
+  setBill,
+  tipPercent,
+  setTipPercent,
+  people,
+  setPeople,
+  tipTotal,
+  setTipTotal,
+  personTotal,
+  setPersonTotal,
+}) => {
+  const tipAmount = tipTotal.toFixed(2);
+  const totalAmount = personTotal.toFixed(2);
   return (
     <Container>
       <div className='results-container'>
@@ -24,7 +37,9 @@ const Results = ({ tipAmount, totalAmount }) => {
           </div>
         </div>
       </div>
-      <div className='reset-btn'>Reset</div>
+      <div className='btn-container'>
+        <div className='reset-btn'>Reset</div>
+      </div>
     </Container>
   );
 };
@@ -41,7 +56,7 @@ const Container = styled.div`
   border-radius: 10px;
   width: 100%;
   height: 100%;
-  padding: 1.8rem 2rem 3rem;
+  padding: 1.8rem 2rem;
 
   .container {
     display: flex;
@@ -90,7 +105,8 @@ const Container = styled.div`
     }
 
     &:active {
-      color: hsl(185, 41%, 84%);
+      color: hsl(183, 100%, 15%);
+      background: hsl(172, 67%, 45%);
     }
   }
 
@@ -151,6 +167,7 @@ const Container = styled.div`
     }
     .reset-btn {
       margin-top: 1rem;
+      padding: 0 6rem;
     }
   }
   @media screen and (max-width: 462px) {
@@ -174,6 +191,9 @@ const Container = styled.div`
       flex-direction: column;
       justify-content: center;
       align-items: center;
+    }
+    .reset-btn {
+      padding: 0 3rem;
     }
   }
 `;
