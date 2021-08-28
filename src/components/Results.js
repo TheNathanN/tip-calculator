@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
 const Results = ({
@@ -13,8 +13,38 @@ const Results = ({
   personTotal,
   setPersonTotal,
 }) => {
+  //Convert Inputs into Numbers
+  const billVal = Number(bill);
+  const tipPercentVal = Number(tipPercent);
+  const peopleVal = Number(people);
+  const tipVal = Number(tipTotal);
+
+  //Functions to get Outputs
+  const getTipTotal = (billVal, tipPerc) => {
+    setTipTotal((tipPerc / 100) * billVal);
+  };
+
+  const getPersonTotal = (bill, tip, peopleCount) => {
+    setPersonTotal((bill + tip) / peopleCount);
+  };
+
+  //Set useEffect to Update State
+  useEffect(() => {
+    getTipTotal(billVal, tipPercentVal);
+    getPersonTotal(billVal, tipVal, peopleVal);
+  }, [billVal, peopleVal, tipPercentVal, tipVal]);
+
+  //Input Handlers
+  const resetInputs = () => {
+    setBill('0');
+    setTipPercent('0');
+    setPeople('0');
+  };
+
+  //Format Outputs
   const tipAmount = tipTotal.toFixed(2);
   const totalAmount = personTotal.toFixed(2);
+
   return (
     <Container>
       <div className='results-container'>
@@ -33,12 +63,14 @@ const Results = ({
             <p>/ person</p>
           </div>
           <div className='result'>
-            <p>${totalAmount}</p>
+            {peopleVal === 0 ? <p>$0.00</p> : <p>${totalAmount}</p>}
           </div>
         </div>
       </div>
       <div className='btn-container'>
-        <div className='reset-btn'>Reset</div>
+        <div className='reset-btn' onClick={resetInputs}>
+          Reset
+        </div>
       </div>
     </Container>
   );

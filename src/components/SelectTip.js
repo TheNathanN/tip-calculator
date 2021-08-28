@@ -2,8 +2,20 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const SelectTip = ({ tipPercent, setTipPercent }) => {
+  //State Managment
   const [customVal, setCustomVal] = useState('');
+  //Function is used in the Handlers to clear the Custom Btn when clicking the other Btns
+  const setCustomTipVal = val => {
+    setTipPercent(val);
+  };
+  //Saves the custom input to State
+  const customHandler = e => {
+    const input = e.target.value;
+    setCustomVal(input);
+    setCustomTipVal(input);
+  };
 
+  //Input Handlers
   const fiveHandler = () => {
     setTipPercent('5');
     setCustomVal('');
@@ -29,17 +41,6 @@ const SelectTip = ({ tipPercent, setTipPercent }) => {
     setCustomVal('');
   };
 
-  const setCustomTipVal = val => {
-    setTipPercent(val);
-  };
-
-  const customHandler = e => {
-    const input = e.target.value;
-    setCustomVal(input);
-    setCustomTipVal(input);
-  };
-
-  console.log(tipPercent);
   return (
     <Container>
       <h6>Select Tip %</h6>

@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const People = ({ people, setPeople }) => {
+  const [shownPeople] = useState('');
+
   const peopleHandler = e => {
     setPeople(e.target.value);
   };
@@ -14,6 +16,7 @@ const People = ({ people, setPeople }) => {
           className='error'
           type='number'
           placeholder='0'
+          value={shownPeople}
           onChange={peopleHandler}
         />
       ) : (
