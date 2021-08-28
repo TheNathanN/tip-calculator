@@ -46,21 +46,56 @@ const SelectTip = ({ tipPercent, setTipPercent }) => {
       <h6>Select Tip %</h6>
       <div className='btn-container'>
         <div className='split-btns main'>
-          <div className='btn' onClick={fiveHandler}>
-            5%
-          </div>
-          <div className='btn' onClick={tenHandler}>
-            10%
-          </div>
-          <div className='btn' onClick={fifteenHandler}>
-            15%
-          </div>
-          <div className='btn hidden' onClick={twentyFiveHandler}>
-            25%
-          </div>
-          <div className='btn hidden' onClick={fiftyHandler}>
-            50%
-          </div>
+          {tipPercent === '5' ? (
+            <div className='btn selected' onClick={fiveHandler}>
+              5%
+            </div>
+          ) : (
+            <div className='btn' onClick={fiveHandler}>
+              5%
+            </div>
+          )}
+
+          {tipPercent === '10' ? (
+            <div className='btn selected' onClick={tenHandler}>
+              10%
+            </div>
+          ) : (
+            <div className='btn' onClick={tenHandler}>
+              10%
+            </div>
+          )}
+
+          {tipPercent === '15' ? (
+            <div className='btn selected' onClick={fifteenHandler}>
+              15%
+            </div>
+          ) : (
+            <div className='btn' onClick={fifteenHandler}>
+              15%
+            </div>
+          )}
+
+          {tipPercent === '25' ? (
+            <div className='btn hidden selected' onClick={twentyFiveHandler}>
+              25%
+            </div>
+          ) : (
+            <div className='btn hidden' onClick={twentyFiveHandler}>
+              25%
+            </div>
+          )}
+
+          {tipPercent === '50' ? (
+            <div className='btn hidden selected' onClick={fiftyHandler}>
+              50%
+            </div>
+          ) : (
+            <div className='btn hidden' onClick={fiftyHandler}>
+              50%
+            </div>
+          )}
+
           {!tipPercent || tipPercent === '0' ? (
             <input
               type='number'
@@ -81,12 +116,25 @@ const SelectTip = ({ tipPercent, setTipPercent }) => {
           )}
         </div>
         <div className='split-btns'>
-          <div className='btn hide' onClick={twentyFiveHandler}>
-            25%
-          </div>
-          <div className='btn hide' onClick={fiftyHandler}>
-            50%
-          </div>
+          {tipPercent === '25' ? (
+            <div className='btn hide selected' onClick={twentyFiveHandler}>
+              25%
+            </div>
+          ) : (
+            <div className='btn hide' onClick={twentyFiveHandler}>
+              25%
+            </div>
+          )}
+
+          {tipPercent === '50' ? (
+            <div className='btn hide selected' onClick={fiftyHandler}>
+              50%
+            </div>
+          ) : (
+            <div className='btn hide' onClick={fiftyHandler}>
+              50%
+            </div>
+          )}
           {!tipPercent || tipPercent === '0' ? (
             <input
               type='number'
@@ -191,6 +239,11 @@ const Container = styled.div`
       -webkit-appearance: none;
       margin: 0;
     }
+  }
+
+  .selected {
+    background: hsl(172, 67%, 45%);
+    color: hsl(183, 100%, 15%);
   }
 
   .error {

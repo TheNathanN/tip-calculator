@@ -35,9 +35,9 @@ const Results = ({
 
   //Input Handlers
   const resetInputs = () => {
-    setBill('0');
-    setTipPercent('0');
-    setPeople('0');
+    setBill('');
+    setTipPercent('');
+    setPeople('');
   };
 
   //Format Outputs
