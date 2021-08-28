@@ -113,7 +113,7 @@ const Container = styled.div`
     .result {
       p {
         color: hsl(172, 67%, 45%);
-        font-size: 2.7rem;
+        font-size: 2.2rem;
       }
     }
   }
@@ -141,15 +141,6 @@ const Container = styled.div`
     }
   }
 
-  @media screen and (max-width: 1123px) {
-    .container {
-      .result {
-        p {
-          font-size: 2.5rem;
-        }
-      }
-    }
-  }
   @media screen and (max-width: 1075px) {
     .container {
       .result {
@@ -174,11 +165,6 @@ const Container = styled.div`
 
     .container {
       margin-bottom: 0.5rem;
-      .result {
-        p {
-          font-size: 2.5rem;
-        }
-      }
     }
 
     .reset-btn {
@@ -189,13 +175,7 @@ const Container = styled.div`
     padding: 2rem;
     justify-content: center;
     align-items: center;
-    .container {
-      .result {
-        p {
-          font-size: 1.5rem;
-        }
-      }
-    }
+
     .reset-btn {
       margin-top: 1rem;
       padding: 0 6rem;
