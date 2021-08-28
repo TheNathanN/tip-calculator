@@ -1,10 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const BillInput = ({ bill, setBill }) => {
-  //State
-  const [shownBill] = useState('');
-
   //Input Handlers
   const billHandler = e => {
     setBill(e.target.value);
@@ -19,10 +16,15 @@ const BillInput = ({ bill, setBill }) => {
           type='number'
           placeholder='0'
           onChange={billHandler}
-          value={shownBill}
+          value={bill}
         />
       ) : (
-        <input type='number' placeholder='0' onChange={billHandler} />
+        <input
+          type='number'
+          placeholder='0'
+          onChange={billHandler}
+          value={bill}
+        />
       )}
     </Container>
   );

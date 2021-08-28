@@ -19,20 +19,19 @@ const Results = ({
   const peopleVal = Number(people);
   const tipVal = Number(tipTotal);
 
-  //Functions to get Outputs
-  const getTipTotal = (billVal, tipPerc) => {
-    setTipTotal((tipPerc / 100) * billVal);
-  };
-
-  const getPersonTotal = (bill, tip, peopleCount) => {
-    setPersonTotal((bill + tip) / peopleCount);
-  };
-
   //Set useEffect to Update State
   useEffect(() => {
+    const getTipTotal = (billVal, tipPerc) => {
+      setTipTotal((tipPerc / 100) * billVal);
+    };
+
+    const getPersonTotal = (bill, tip, peopleCount) => {
+      setPersonTotal((bill + tip) / peopleCount);
+    };
+
     getTipTotal(billVal, tipPercentVal);
     getPersonTotal(billVal, tipVal, peopleVal);
-  }, [billVal, peopleVal, tipPercentVal, tipVal]);
+  }, [billVal, peopleVal, tipPercentVal, tipVal, setPersonTotal, setTipTotal]);
 
   //Input Handlers
   const resetInputs = () => {

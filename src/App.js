@@ -8,9 +8,9 @@ import Results from './components/Results';
 
 function App() {
   //Define the State Variables of App
-  const [bill, setBill] = useState('0');
-  const [tipPercent, setTipPercent] = useState('0');
-  const [people, setPeople] = useState('0');
+  const [bill, setBill] = useState('');
+  const [tipPercent, setTipPercent] = useState('');
+  const [people, setPeople] = useState('');
   const [tipTotal, setTipTotal] = useState(0);
   const [personTotal, setPersonTotal] = useState(0);
 
