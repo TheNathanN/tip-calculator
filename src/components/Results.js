@@ -50,7 +50,6 @@ const Results = ({
         <div className='container'>
           <div className='label-container'>
             <h6>Tip Amount</h6>
-            <p>/ person</p>
           </div>
           <div className='result'>
             <p>${tipAmount}</p>

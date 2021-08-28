@@ -52,6 +52,9 @@ const Container = styled.div`
     border-radius: 4px;
     padding: 1rem;
     cursor: pointer;
+    background-image: url('/images/icon-dollar.svg');
+    background-repeat: no-repeat;
+    background-position: 5% center;
 
     &:focus {
       outline: none;
